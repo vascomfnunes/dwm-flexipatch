@@ -13,10 +13,10 @@ static const char *downbright[] = { "xbacklight", "-dec",   "10", NULL,  NULL };
 
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
-static const unsigned int borderpx       = 0;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const int corner_radius           = 4;
 #else
-static const unsigned int borderpx       = 0;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 static const unsigned int snap           = 32;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -46,7 +46,7 @@ static const char *altbarcmd             = "$HOME/bar.sh"; /* Alternate bar laun
 #if BAR_HOLDBAR_PATCH
 static const int showbar                 = 0;   /* 0 means no bar */
 #else
-static const int showbar                 = 0;   /* 0 means no bar */
+static const int showbar                 = 1;   /* 0 means no bar */
 #endif // BAR_HOLDBAR_PATCH
 static const int topbar                  = 1;   /* 0 means bottom bar */
 #if TAB_PATCH
