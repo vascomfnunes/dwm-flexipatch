@@ -13,7 +13,7 @@ static const char *downbright[] = { "xbacklight", "-dec",   "10", NULL,  NULL };
 
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
-static const unsigned int borderpx       = 1;   /* border pixel of windows */
+static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 4;
 #else
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -26,10 +26,10 @@ static const int swallowfloating         = 0;   /* 1 means swallow floating wind
 static int nomodbuttons                  = 1;   /* allow client mouse button bindings that have no modifier */
 #endif // NO_MOD_BUTTONS_PATCH
 #if VANITYGAPS_PATCH
-static const unsigned int gappih         = 4;  /* horiz inner gap between windows */
-static const unsigned int gappiv         = 4;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 4;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 4;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappih         = 8;  /* horiz inner gap between windows */
+static const unsigned int gappiv         = 8;  /* vert inner gap between windows */
+static const unsigned int gappoh         = 8;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 8;  /* vert outer gap between windows and screen edge */
 static const int smartgaps_fact          = 0;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 #endif // VANITYGAPS_PATCH
 #if AUTOSTART_PATCH
@@ -872,8 +872,8 @@ static Key keys[] = {
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
 	#else
-	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
-	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
+	{ MODKEY,                       XK_h,          focusstack,             {.i = +1 } },
+	{ MODKEY,                       XK_l,          focusstack,             {.i = -1 } },
 	#endif // STACKER_PATCH
 	#if FOCUSDIR_PATCH
 	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left
@@ -907,8 +907,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_i,          incnstack,              {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_u,          incnstack,              {.i = -1 } },
 	#endif // FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
+	{ MODKEY|ControlMask,                       XK_h,          setmfact,               {.f = -0.05} },
+	{ MODKEY|ControlMask,                       XK_l,          setmfact,               {.f = +0.05} },
 	#if CFACTS_PATCH
 	{ MODKEY|ShiftMask,             XK_h,          setcfact,               {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,          setcfact,               {.f = -0.25} },
@@ -978,7 +978,7 @@ static Key keys[] = {
 	#if BAR_WINTITLEACTIONS_PATCH
 	{ MODKEY|ControlMask,           XK_z,          showhideclient,         {0} },
 	#endif // BAR_WINTITLEACTIONS_PATCH
-	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
+	{ MODKEY,             XK_w,          killclient,             {0} },
 	#if KILLUNSEL_PATCH
 	{ MODKEY|ShiftMask,             XK_x,          killunsel,              {0} },
 	#endif // KILLUNSEL_PATCH
