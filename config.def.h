@@ -3,9 +3,9 @@
 #include <X11/XF86keysym.h>
 
 /* Volume controls */
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *upvol[]   = { "/usr/bin/amixer", "set", "Master", "5%+",    NULL };
+static const char *downvol[]   = { "/usr/bin/amixer", "set", "Master", "5%-",    NULL };
+static const char *mutevol[]   = { "/usr/bin/amixer", "set", "Master", "toggle",    NULL };
 
 /* Brightness controls */
 static const char *upbright[] = { "xbacklight", "-inc",   "10", NULL,  NULL };
